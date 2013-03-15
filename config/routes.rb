@@ -1,11 +1,17 @@
 Matconta::Application.routes.draw do
-  get "paginas_estaticas/home"
 
-  get "paginas_estaticas/faq"
+  root to: 'paginas_estaticas#home'
 
-  get "paginas_estaticas/quemsomos"
 
-  get "paginas_estaticas/termouso"
+  match '/faq', to: 'paginas_estaticas#faq'
+
+  match '/quem_somos', to: 'paginas_estaticas#quemsomos'
+
+  match '/termos_de_uso', to: 'paginas_estaticas#termouso'
+
+  get "usuarios/novo"
+
+  match 'cadastro', to: 'usuarios#novo'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
