@@ -1,4 +1,12 @@
 Matconta::Application.routes.draw do
+  get "paginas_estaticas/home"
+
+  get "paginas_estaticas/faq"
+
+  get "paginas_estaticas/quemsomos"
+
+  get "paginas_estaticas/termouso"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
