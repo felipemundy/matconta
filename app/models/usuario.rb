@@ -50,7 +50,7 @@ class Usuario < ActiveRecord::Base
 
   has_secure_password
 
-
+  #Implementar validacao de formato de CEP
 
   private
 

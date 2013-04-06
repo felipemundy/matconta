@@ -1,9 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+#configurar hirb para evitar enable toda hora
 gem 'hirb'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'faker', '1.0.1'
 
 
 # Bundle edge Rails instead:
