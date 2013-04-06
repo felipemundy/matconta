@@ -19,22 +19,22 @@
 #
 
 class Usuario < ActiveRecord::Base
-  attr_accessible :celular, :email, :end_bai, :end_cep, :end_cid, :end_comp, :end_num, :end_rua, :login, :nome
+  attr_accessible :celular, :email, :end_bai, :end_cep, :end_cid, :end_comp, :end_num, :end_rua, :login, :nome, :password, :password_confirmation, :termos
 
-  #Verifica necessidade de implementar campos :message para a validacao
+  #Verificar necessidade de implementar campos :message para a validacao
 
   #Validacao de confirmacao
-  validates :password, confirmation: true
+  #validates :password, confirmation: true #ja esta implementado pelo has_secure_password
 
   #Validacao de presenca
-  validates :celular, :email, :end_bai, :end_cep, :end_cid, :end_comp, :end_num, :end_rua, :login, :nome, :password, :password_confirmation, presence: true
+  validates :celular, :email, :end_bai, :end_cep, :end_comp, :end_num, :end_rua, :nome, :password, :password_confirmation, presence: true
 
   #Validacao de formato
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, format: {with: VALID_EMAIL_REGEX}
 
   #Validacao de comprimento
-  validates :login, length: { :in => 6..20 }
+  #validates :login, length: { :in => 6..20 }
   validates :password, length: { :in => 6..20 }
 
   #Validacao numerica
@@ -43,7 +43,9 @@ class Usuario < ActiveRecord::Base
   validates :end_cep, numericality: true
 
   #Validacao de unicidade
-  validates :login, uniqueness: true
+  #validates :login, uniqueness: true
+
+  validates :termos, acceptance: true
 
   has_secure_password
 

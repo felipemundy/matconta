@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20130316005546) do
     t.string   "end_cid"
     t.string   "celular"
     t.string   "email"
-    t.string   "login"
+    t.string   "login"             #O login será o email, talvez tenha que tirar
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "password_digest"

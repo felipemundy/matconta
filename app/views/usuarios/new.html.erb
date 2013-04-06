@@ -1,4 +1,52 @@
 <!-- Pode acontecer de o nome novo dar problema em relacao a new -->
 <% provide(:title, 'Cadastro') %>
-<h1>Usuarios#novo</h1>
-<p>Find me in app/views/usuarios/novo.html.erb</p>
+<h1>Cadastro</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@usuario) do |f| %>
+
+      <%= render 'shared/error_messages' %>
+
+      <%= f.label :nome %>
+      <%= f.text_field :nome %>
+
+      <h6>Você poderá cadastrar mais de uma endereço no seu perfil mais tarde</h6>
+
+      <%= f.label :end_cep, "CEP"%>
+      <%= f.text_field :end_cep %>
+
+      <%= f.label :end_rua, "Rua" %>
+      <%= f.text_field :end_rua %>
+
+      <%= f.label :end_num, "Número" %>
+      <%= f.text_field :end_num %>
+
+      <%= f.label :end_bai, "Bairro" %>
+      <%= f.text_field :end_bai %>
+
+      <%= f.label :end_comp, "Complemento" %>
+      <%= f.text_field :end_comp %>
+
+      <h6>Digite o seu celular para que possamos entrar em contato com você quando os orçamentos estiverem prontos</h6>
+
+      <%= f.label :celular, "Telefone Celular" %>
+      <%= f.text_field :celular %>
+
+      <h6>Dados para login</h6>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password, "Digite uma senha" %>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "Digite a senha novamente" %>
+      <%= f.password_field :password_confirmation %>
+
+      <%= check_box :usuario, :termos %><h6>Li e estou ciente dos <a href="#">Termos de Uso</a> </h6>
+
+      <%= f.submit "Enviar", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
