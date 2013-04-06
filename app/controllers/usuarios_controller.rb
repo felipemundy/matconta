@@ -10,6 +10,7 @@ class UsuariosController < ApplicationController
   def create
   	@usuario=Usuario.new(params[:usuario])
   	if @usuario.save
+      sign_in @usuario
   		flash[:success] = "Cadastro efetuado com sucesso"
   		redirect_to @usuario
   	else

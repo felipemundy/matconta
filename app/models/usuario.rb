@@ -20,6 +20,7 @@
 
 class Usuario < ActiveRecord::Base
   attr_accessible :celular, :email, :end_bai, :end_cep, :end_cid, :end_comp, :end_num, :end_rua, :login, :nome, :password, :password_confirmation, :termos
+  before_save :create_remember_token
 
   #Verificar necessidade de implementar campos :message para a validacao
 
@@ -48,5 +49,13 @@ class Usuario < ActiveRecord::Base
   validates :termos, acceptance: true
 
   has_secure_password
+
+
+
+  private
+
+    def create_remember_token
+      self.remember_token = SecureRandom.urlsafe_base64
+    end
 
 end

@@ -1,17 +1,19 @@
 Matconta::Application.routes.draw do
   resources :usuarios
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'paginas_estaticas#home'
 
   match '/faq', to: 'paginas_estaticas#faq'
-
   match '/quem_somos', to: 'paginas_estaticas#quemsomos'
-
   match '/termos_de_uso', to: 'paginas_estaticas#termouso'
 
   #get "usuarios/novo" # O resources removeria essa linha
 
   match '/cadastro', to: 'usuarios#new'
+
+  match '/login', to: 'sessions#new'
+  match '/sair', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
