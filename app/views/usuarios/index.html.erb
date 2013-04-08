@@ -6,7 +6,9 @@
 <ul class="users">
   <% @usuarios.each do |user| %>
     <li>
+      <!-- Implementar redefinicao da gravatar_for com o controle de tamanho -->
       <%= gravatar_for user %>
+      <%= link_to usuario.nome, usuario %>
       <%= link_to user.nome, user %>
     </li>
   <% end %>

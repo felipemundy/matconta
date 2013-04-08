@@ -19,4 +19,15 @@ class SessionsController < ApplicationController
 		redirect_to root_url
 	end
 
+	def admin
+		usuario=Admin.find_by_login(params[:session][:login])
+		if usuario && usuario.authenticate(params[:session][:password])
+			sign_in usuario
+			#Mais tarde redirect para o dashboard admin
+			redirect_to root_url
+		else
+			flash[:error] = 'Login ou senha inválido!'
+			render 'new'
+		end
+
 end

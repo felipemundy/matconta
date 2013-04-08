@@ -14,6 +14,7 @@ Matconta::Application.routes.draw do
 
   match '/login', to: 'sessions#new'
   match '/sair', to: 'sessions#destroy', via: :delete
+  match '/admin', to: 'sessions#admin'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
