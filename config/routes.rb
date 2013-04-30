@@ -1,5 +1,5 @@
 Matconta::Application.routes.draw do
-  resources :usuarios
+  resources :usuarios, :admin
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'paginas_estaticas#home'
@@ -15,6 +15,9 @@ Matconta::Application.routes.draw do
   match '/login', to: 'sessions#new'
   match '/sair', to: 'sessions#destroy', via: :delete
   match '/admin', to: 'sessions#admin'
+
+  #Rotear o index dos usuarios apenas para os admins!
+  match '/admin/usuarios', to: 'admin#index_usuarios'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

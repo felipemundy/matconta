@@ -2,9 +2,9 @@ class Admin < ActiveRecord::Base
   attr_accessible :login, :password, :password_confirmation
   before_save :create_remember_token
 
-  validates :login, :password, :password_confirmation
+  validates :login, :password, :password_confirmation, presence: true
 
-  validates :password, length: [:in => 6..20]
+  validates :password, length: {:within => 6..40}
 
   has_secure_password
 

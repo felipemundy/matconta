@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
 			#Mais tarde redirect para o dashboard admin
 			redirect_to root_url
 		else
-			flash[:error] = 'Login ou senha inválido!'
+			flash[:error] = 'Login ou senha invalido!'
 			render 'new'
 		end
 

@@ -1,7 +1,8 @@
 class UsuariosController < ApplicationController
-  before_filter :signed_in_user, only: [:edit, :update, :index]
+  before_filter :signed_in_user, only: [:edit, :update]
   before_filter :correct_user, only: [:edit, :update]
 
+  #Implementado no admin
   def show
   	@usuario = Usuario.find(params[:id])
   end
@@ -39,6 +40,13 @@ class UsuariosController < ApplicationController
   def index
     @usuarios = Usuario.paginate(page: params[:page])
   end
+
+  def destroy
+    @usuario.find(params[:id]).destroy
+    flash[:success] = "Usuario deletado com sucesso!"
+    redirect_to usuarios_url
+  end
+
 
 private
   def signed_in_user
