@@ -17,7 +17,7 @@ Matconta::Application.routes.draw do
   match '/admin', to: 'sessions#admin'
 
   #Rotear o index dos usuarios apenas para os admins!
-  match '/admin/usuarios', to: 'admin#index_usuarios'
+  match '/teste', to: 'admin#index_usuarios'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

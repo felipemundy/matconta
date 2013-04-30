@@ -31,6 +31,7 @@ class AdminController < ApplicationController
   end
 
   def index_usuarios
+    @admin=nil
     @usuarios = Usuario.paginate(page: params[:page])
   end
 
