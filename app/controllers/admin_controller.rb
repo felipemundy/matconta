@@ -6,7 +6,7 @@ class AdminController < ApplicationController
 
 	def new
   		@admin = Admin.new
-  end
+  	end
 
 	def create
 		@admin=Admin.new(params[:admin])
@@ -18,7 +18,7 @@ class AdminController < ApplicationController
 		else
 			render :new #Alterar para perfil do usuario recem criado
 		end
-  end
+  	end
 
   	#Controle de usuários
 
